@@ -1,3 +1,8 @@
+
+> [!CAUTION]
+> Negative potential consequences of an action.
+
+
 ##  Create a LUKS Key File:
 ```bash
 sudo mkdir -p /etc/luks-keys
