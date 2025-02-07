@@ -24,37 +24,30 @@ sudo cryptsetup luksAddKey /dev/TheDiskOrPartition /etc/luks-keys/luks-key.bin
 >> You re done
 
 
-## Test Decrypt the Volume with the new encrypted Key
-```bash
+---
+##  Automate Key on boot (case not a critical volume for boot)
+> Crypttab file
+``` bash
+# <target name> <source device>         <key file>      <options>
+#volumeNameToGenerateWhenDecrypt(Mountable in fstab)    /dev/theDevice(or UUID=...)  /pathToKey  luks
+#data_crypted UUID=c71c5757-dcbb-47ff-80c4-5d3936eee20a /etc/luks-keys/luks-key.bin     luks
+data_crypted UUID=c71c5757-dcbb-47ff-80c4-5d3936eee20a  none    luks
+---
+> fstab file
+```
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/ubuntu-vg/ubuntu-lv during curtin installation
+/dev/disk/by-id/dm-uuid-LVM-UNiHN1kv7e2eydyHOl5slQb6xnVNI6S1m300fz1WM3V9KMWmuPcdFRQDUXHcoeFt / ext4 defaults 0 1
+# /boot was on /dev/sda2 during curtin installation
+/dev/disk/by-uuid/01fb01c6-3215-48e8-b5ac-06b99c1917ab /boot ext4 defaults 0 1
+/swap.img       none    swap    sw      0       0
+/dev/mapper/data_crypted        /mnt/my_encrypted_data  ext4  defaults 0 2
+
 ```
 
-## How to Delete Previous Keys (for key rotation):
-```bash
-```
-
-## BackUp LUKS headers:
-> How to backup LUKS header
-```bash
-sudo cryptsetup luksHeaderBackup /dev/DEVICE \
-            --header-backup-file /path/to/backupfile
-```
->> This command is crucial for disaster recovery with LUKS-encrypted volumes.  If the LUKS header (which contains essential information about the encryption, including master key slots) gets corrupted or overwritten, you'll lose access to your data.  A header backup allows you to restore the header and regain access.
-
-> to inspect file you could use:
-```bash
-#Determine the file type
-sudo file /pathToHeaderBackupFile
-
-#stat command displays detailed information This can be useful to verify that the backup file was created successfully and has the expected size.
-sudo stat /pathToHeaderBackupFile
-
-#cryptsetup luksDump command(most important inspect command) : luksDump will parse the backup file and display the LUKS metadata contained within it.  This allows you to verify that the backup contains the correct information about the encrypted volume, including the UUID, cipher used, key slots, and other essential details.
-sudo cryptsetup luksDump /pathToHeaderBackupFile
-```
-## Restore LUKS headers:
-> How to Restore Luks header
-```bash
-cryptsetup luksHeaderRestore /dev/DEVICE \ 
-        --header-backup-file /path/to/backup_header_file
-```
->> PS: not when you restore the header of a crypted lucks volume, it will take on consideration that the header matches the passphrases or key they have knowledge about, so if u restore with an old header u should use a passphrase or key that is defined when that header backup was taken, new passphrases or keys created after the header backup will not work.
