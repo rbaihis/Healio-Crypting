@@ -1,5 +1,5 @@
 
-> [!CAUTION]
+> [!CAUTION] [!WARN]
 > Negative potential consequences of an action.
 
 
