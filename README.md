@@ -32,9 +32,10 @@ sudo cryptsetup luksAddKey /dev/TheDiskOrPartition /etc/luks-keys/luks-key.bin
 #volumeNameToGenerateWhenDecrypt(Mountable in fstab)    /dev/theDevice(or UUID=...)  /pathToKey  luks
 #data_crypted UUID=c71c5757-dcbb-47ff-80c4-5d3936eee20a /etc/luks-keys/luks-key.bin     luks
 data_crypted UUID=c71c5757-dcbb-47ff-80c4-5d3936eee20a  none    luks
+```
 ---
 > fstab file
-```
+```bash
 # /etc/fstab: static file system information.
 #
 # Use 'blkid' to print the universally unique identifier for a
