@@ -1,12 +1,14 @@
 
 # LUKS Encryption And Management
 
-
-- [Crypt Disk](1.encrypt_luks.md)
-- [Add Key - BackUp Header](2.add_key_backup_header.md)
-- [On boot options](3_automate_decrypt_on_boot.md)
-- [Risky-Crypt no Formatting](4.no_formatting_encryption.mdd)
+# Navigate For details:
+- [Crypt Disk](/1.encrypt_luks.md)
+- [Add Key - BackUp Header](/2.add_key_backup_header.md)
+- [Booting Options - Automated vs Manual approach](/3_automate_decrypt_on_boot.md)
+- [Risky-Crypt no Formatting](/4.no_formatting_encryption.mdd)
  ---
+
+## Must Know 
 
 > [!NOTE]
 >   - LUKS encryption **safeguards data on a stolen physical or virtual volume**, regardless of whether it resides in the cloud or on a physical device.
