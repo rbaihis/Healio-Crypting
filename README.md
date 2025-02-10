@@ -1,7 +1,8 @@
 
 # LUKS Encryption And Management
 
-# Navigate For details:
+##### Navigate For details:
+- [Home](README.md)
 - [Crypt Disk](/1.encrypt_luks.md)
 - [Add Key - BackUp Header](/2.add_key_backup_header.md)
 - [Booting Options - Automated vs Manual approach](/3_automate_decrypt_on_boot.md)
@@ -35,8 +36,9 @@
 > - While technically possible in some cases, **it's highly discouraged**.  There's a significant chance of `data corruption or loss` during the encryption process if something goes wrong.
 
 ---
+- [Home](README.md)
 - [Crypt Disk](/1.encrypt_luks.md)
 - [Add Key - BackUp Header](/2.add_key_backup_header.md)
 - [Booting Options - Automated vs Manual approach](/3_automate_decrypt_on_boot.md)
 - [Risky-Crypt Without Formatting](/4.no_formatting_encryption.md)
- ---
+
