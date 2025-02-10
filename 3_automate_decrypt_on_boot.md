@@ -2,11 +2,12 @@
 # Automate Decrypt On boot 
 
 
-
-- [Crypt Disk](1.encrypt_luks.md)
-- [Add Key - BackUp Header](2.add_key_backup_header.md)
-- [On boot options](3_automate_decrypt_on_boot.md)
-- [Risky-Crypt no Formatting](4.no_formatting_encryption.md)
+##### Navigate For details:
+- [Home](README.md)
+- [Crypt Disk](/1.encrypt_luks.md)
+- [Add Key - BackUp Header](/2.add_key_backup_header.md)
+- [Booting Options - Automated vs Manual approach](/3_automate_decrypt_on_boot.md)
+- [Risky-Crypt Without Formatting](/4.no_formatting_encryption.md)
  ---
 
 
@@ -166,6 +167,10 @@ lsblk /dev/sdX  # Check if "encrypted_volume" appears under mappers
 - **man cryptsetup-ssh**
 
 
-
-
+---
+- [Home](README.md)
+- [Crypt Disk](/1.encrypt_luks.md)
+- [Add Key - BackUp Header](/2.add_key_backup_header.md)
+- [Booting Options - Automated vs Manual approach](/3_automate_decrypt_on_boot.md)
+- [Risky-Crypt Without Formatting](/4.no_formatting_encryption.md)
 
